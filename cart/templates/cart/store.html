@@ -1,0 +1,69 @@
+{% extends 'cart/main.html' %}
+{% load static %}
+
+{% block content %}
+{% load poll_extras%}
+
+<div class="row">
+{% for product in theproducts %}
+
+	<div class="col-lg-6">
+		<video class="thumbnail" width="320" height="240" controls>
+	  		<source src='http://localhost:8000/cart/images/{{product.video_demo}}' type="video/mp4">
+		</video>
+
+		<div class="box-element product">
+			<h5>{{product.name}}</h6>
+			<br/>
+			<h6><strong>{{product.category}}</strong></h5>
+			<hr>
+
+			{% if product.price > 0 %}
+
+				<button  data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+
+			{% else %}
+
+				<a href= 'http://localhost:8000/cart/images/{{product.video_file}}' download='{{product.name}}'>
+				<button  class="btn btn-outline-secondary add-btn">Download Video</button></a>
+
+			{% endif %}		
+
+			<h4 style="display: inline-block; float: right"><strong>AED{{product.price}}</strong></h4>
+	    </div>
+     </div>
+
+{% endfor %}
+
+</div>
+<br/>
+
+<center><strong>
+
+	<div class="row justify-content-center">
+  		<div class="row">
+  			<li class="list-group-item"><a class= "btn"><strong>Categories</strong>
+  			<li class="list-group-item"><a class= "btn btn-danger" href="{% url 'store'%}"><strong>All</strong></a></li>
+    		{% for cat in cats %}
+    			<li class="list-group-item"><a class= "btn btn-success" href="{% url 'store'%}?category={{cat.name}}"><strong>{{cat.name}}</strong></a></li>
+			{% endfor %}
+  		</div>
+	</div>
+
+	<br/>
+	
+	{% if theproducts.has_previous %}
+		<a  class= "btn btn-primary" href="{% my_url 1 'page' request.GET.urlencode %}">FIRST</a>
+		<a  class= "btn btn-primary" href="{% my_url theproducts.previous_page_number 'page' request.GET.urlencode %}">PREVIOUS</a>
+	{% endif %}
+
+		Page {{ theproducts.number }} of {{ theproducts.paginator.num_pages }}
+
+	{% if theproducts.has_next %}
+		<a  class= "btn btn-primary" href="{% my_url theproducts.next_page_number 'page' request.GET.urlencode %}">NEXT</a>
+		<a  class= "btn btn-primary" href="{% my_url theproducts.paginator.num_pages 'page' request.GET.urlencode %}">LAST</a>
+	{% endif %}
+
+</strong></center>
+
+{% endblock content %}

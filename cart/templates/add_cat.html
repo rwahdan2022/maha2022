@@ -1,0 +1,28 @@
+{% extends 'cart/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<center>
+	<h1>Add New Category</h1>
+<center>
+	<br/><br/>
+	
+	{% if submitted %}
+	
+		Your category was added...
+	
+	{% else %}
+
+		<form action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{ form.as_p }}
+
+			<input type="submit" value="submit" class="btn btn-secondary">
+
+		</form>
+
+	{% endif %}
+
+
+{% endblock content %}

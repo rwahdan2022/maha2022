@@ -1,0 +1,28 @@
+{% extends 'cart/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>Transactions</h1>
+<ul>
+
+	{% if user.is_authenticated %}
+	    {% if user.is_superuser %}
+			{% for order in order_list %}
+				{% if order.transaction_id and order.pay_confirm == False %}
+					<li><a href="{% url 'detailed-transactions' order.id %}"> TranscationID:{{ order.transaction_id }}</li>
+				{% endif %}
+			{% endfor %}
+		{% else %}
+			{% for order in order_list %}
+				{% if order.transaction_id %}
+					<li><a href="{% url 'detailed-transactions' order.id %}"> TranscationID:{{ order.transaction_id }}</li>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% else %}
+		<strong>Your should login first</strong>
+	{% endif %}
+</ul>
+
+{% endblock content %}

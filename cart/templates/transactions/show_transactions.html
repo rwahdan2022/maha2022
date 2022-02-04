@@ -1,0 +1,127 @@
+{% extends 'cart/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="card">
+  <div class="card-header">
+    Transaction Details
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Order# {{order_id}}</h5>
+    
+    <p class="card-text">
+    	
+    <strong>Customer Name: {{thecustomer}}</strong><br/>
+	<strong>Order Date: {{order_date}}</strong><br/>
+	{% if done == 1 %}
+		<strong>Payment Received On:{{thedate}}</strong><br/>
+	{% else %}
+		<strong>{{thedate}}</strong><br/>
+	{% endif %}
+	<br/>
+
+    </p>
+    
+  </div>
+</div>
+
+<br/>
+
+<div class="card">
+  <div class="card-header">
+    Purchase Details
+  </div>
+  <div class="card-body">
+    
+    <p class="card-text">
+    	
+    	{% for order in item_list %}
+			<ol>
+				Product Name:    	{{ order.product.name }}<br/>
+				Product Price:    	{{ order.product.price }}<br/>
+				Quantity:						{{order.quantity}}<br/><br/>
+				<img src= {{order.product.imageURL}} width="25%">
+				<br/><br/><br/>
+			</ol>
+
+		{% endfor %}
+    
+    </p>
+   
+  </div>
+</div>
+
+<br/>
+
+<div class="card">
+  <div class="card-header">
+    Payment Details
+  </div>
+  <div class="card-body">
+    
+    <p class="card-text">
+    	
+		{% if done == 1 %}
+
+			{% if user.is_authenticated %}
+	    	
+	    	{% if user.is_superuser %}
+
+					<strong>Total Paid:         {{total}}AED<br/><br/></strong>
+					<img src= {{theimage}} width="25%"> 
+
+					{% if done2 == 1 %}
+						{{done2}}
+						<form action="#" method="POST">
+						{% csrf_token %}
+						<button type="submit">Confirm Payment</button>
+						</form>
+					{% endif %}
+
+				{% else %}
+
+					<strong>Total Paid:   {{total}}AED<br/><br/></strong>
+					<img src= {{theimage}} width="25%"> 
+
+				{% endif %}
+
+			{% endif %}
+		
+		{% else %}
+
+			{% if user.is_authenticated %}
+	    	
+	    	{% if user.is_superuser %}
+
+				{% else %}
+
+					Total Due:         {{total}}AED
+					<br/>
+					<h3>Attach Payment</h3>
+
+					<br/>
+
+					<a href="http://localhost:8000/cart/images/bank_statement.jpeg" download="Bank Details">Download Bank Details</a>
+
+					<form action="#" method="POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						<label class="form-label">Upload Payment Receipt</label>
+					  <input class="form-control" type="file" id="file" name="file">
+					  <br/>
+						<button class="btn btn-success" type="submit">Submit Payment</button>
+					</form>
+
+				{% endif %}
+
+			{% endif %}
+
+		{% endif %}
+   
+    </p>
+  </div>
+</div>
+
+<br/>
+
+{% endblock content %}

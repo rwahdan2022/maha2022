@@ -1,0 +1,27 @@
+{% extends 'cart/main.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if form.errors %}
+	<div class="alert alert-warning alert-dismissible" role="alert">
+			<span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+  			There was an error with the form!
+		</div>
+{% endif %}
+
+	<div class="shadow p-4 mb-5 bg-body rounded">
+	<h3>Registration Form</h3>
+
+	<div class="row">
+		<div class="col-lg-12">
+			<form action="{% url 'register_user' %}" method="POST">
+				{% csrf_token %}
+				{{ form.as_p }}
+
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+	</div>
+		</div>
+	</div>
+{% endblock content %}

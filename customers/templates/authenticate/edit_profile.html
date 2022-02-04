@@ -1,0 +1,21 @@
+{% extends 'cart/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3>Edit Profile</h3>
+
+{{user.profile.bio}}
+
+	<div class="row">
+		<div class="col-lg-12">
+			<form method="POST">
+				{% csrf_token %}
+				{{ form.as_p }} 
+				<br/>
+			  <button type="submit" class="btn btn-primary">Update Profile</button>
+			</form>
+		</div>
+	</div>
+
+{% endblock content %}

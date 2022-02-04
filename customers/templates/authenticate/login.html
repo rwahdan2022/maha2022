@@ -1,0 +1,30 @@
+{% extends 'cart/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<br/><br/><br/><br/><br/>
+<h3>Login Page</h3>
+<br/><br/>
+
+	<div class="row">
+		<div class="col-lg-12">
+			<form action="" method="POST">
+				{% csrf_token %}
+				
+			  <div class="mb-3">
+			    <label class="form-label">Username</label>
+			    <input type="text" class="form-control" 
+			    name="username">
+			  </div>
+			  <div class="mb-3">
+			    <label class="form-label">Password</label>
+			    <input type="password" class="form-control" name="password">
+			  </div>
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			  <br/>
+			  <a href="{% url 'reset_password' %}">Forgot Password?</a>
+			</form>
+		</div>
+	</div>
+{% endblock content %}

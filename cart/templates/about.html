@@ -1,0 +1,42 @@
+{% extends 'cart/main.html' %}
+{% load static %}
+
+{% block content %}
+<br/><br/><br/><br/><br/>
+
+<center>
+<div class="row">
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <br/><br/><br/>
+        <img src="{% static 'cart/images/rami.png' %}" width= 100% heigh= 100% class="img-fluid img-thumbnail" alt="">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Mr. Rami Wahdan</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is a wider card with supporting text below as a natural lead-in to additional.</p>
+          <a class= "btn btn-success" href = "mailto: ramitaherwahdan1978@gmail.com">Send Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <br/><br/><br/>
+        <img src="{% static 'cart/images/fatima.jpg' %}" width= 100% heigh= 100% class="img-fluid img-thumbnail" alt="">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Ms. Fatima Habib</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer. This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <a class= "btn btn-success" href = "mailto: fatima.habib1980@gmail.com">Send Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</center>
+{% endblock content %}
