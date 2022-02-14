@@ -9,12 +9,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5uocf7or6lm51c(6=wj(c0qi+e60+nb@(=pxwa@6#n@6oq5&03'
+SECRET_KEY = os.environ.get('SECRET_KEY','django-insecure-5uocf7or6lm51c(6=wj(c0qi+e60+nb@(=pxwa@6#n@6oq5&03')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['maha2022.herokuapp.com']
 
 
 # Application definition
@@ -138,3 +138,13 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ramifamilyphotos2018@gmail.com'
 EMAIL_HOST_PASSWORD = 'Fatima@2020' #os.environ.get('EMAILPASSWORD')
+
+CORS_REPLACE_HTTPS_REFERER = True
+HOST_SCHEME = "https://"
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS =True
+SECURE_HSTS_SECONDS = True
+SECURE_FRAME_DENY = True
