@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from maha.aws.conf import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,8 +15,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY','django-insecure-5uocf7or6lm51c(6=wj(c0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['maha2022.herokuapp.com','localhost']
-
+ALLOWED_HOSTS = ['maha2022.herokuapp.com']
 
 # Application definition
 
@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cart',
     'customers',
+    'storages',
 
 ]
 
