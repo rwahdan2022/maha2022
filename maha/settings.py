@@ -113,7 +113,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -123,11 +123,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AWS_ACCESS_KEY_ID = 'AKIAV6AB5EJOIWSV3C7D'
-AWS_SECRET_ACCESS_KEY = ''
-AWS_STORAGE_BUCKET_NAME = ''
-AWS_S3_CUSTOM_DOMAIN = ''
-AWS_S3_OBJECT_PARAMETERS = ''
-AWS_DEFAULT_ACL = ''
+AWS_SECRET_ACCESS_KEY = 'PAkTXFc3aWlbenhoYHwPSz5EBaF/rxXmkz2jZDiX'
+AWS_STORAGE_BUCKET_NAME = 'maha2022'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazoneaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+AWS_DEFAULT_ACL = 'public-read'
 
 AWS_LOCATION = 'static'
 STATICFILES_DIRS = [
