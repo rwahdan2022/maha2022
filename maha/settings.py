@@ -120,8 +120,6 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-
 AWS_ACCESS_KEY_ID = 'AKIAV6AB5EJOIWSV3C7D'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'maha2022'
@@ -135,6 +133,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 
 ]
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 MEDIA_URL = 'cart/images/'
 
