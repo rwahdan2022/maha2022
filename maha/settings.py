@@ -14,7 +14,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY','django-insecure-5uocf7or6lm51c(6=wj(c0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['maha2022.herokuapp.com','www.drmahahabib.com']
+ALLOWED_HOSTS = ['maha2022.herokuapp.com','www.drmahahabib.com','herokuapp.com']
 
 # Application definition
 
@@ -132,7 +132,6 @@ AWS_LOCATION = 'static'
 STATICFILES_DIRS = [
 
     os.path.join(BASE_DIR, 'static'),
-
 ]
 
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3Boto3Storage'
