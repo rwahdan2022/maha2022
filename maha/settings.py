@@ -132,6 +132,8 @@ STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 MEDIA_URL = '/cart/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/cart/images/')
 
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+
 #email local settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
