@@ -110,8 +110,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
 
 AWS_ACCESS_KEY_ID = 'AKIAV6AB5EJOIWSV3C7D'
 AWS_SECRET_ACCESS_KEY = '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'
@@ -120,7 +122,7 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazoneaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 #AWS_DEFAULT_ACL = ''
 
-AWS_LOCATION = 'static/'
+AWS_LOCATION = 'arn:aws:s3:::maha2022/static/'
 STATICFILES_DIRS = [
 
     os.path.join(BASE_DIR, 'static/'),
@@ -128,11 +130,12 @@ STATICFILES_DIRS = [
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-
 MEDIA_URL = '/cart/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/cart/images/')
-
 ADMIN_MEDIA_PREFIX = '/static/admin/'
+
+
+
 
 #email local settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
