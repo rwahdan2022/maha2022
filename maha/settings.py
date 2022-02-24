@@ -112,7 +112,7 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+#https://maha2022.s3.ap-southeast-1.amazonaws.com/static/
 
 
 AWS_ACCESS_KEY_ID = 'AKIAV6AB5EJOIWSV3C7D'
@@ -120,7 +120,7 @@ AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'maha2022'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazoneaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-#AWS_DEFAULT_ACL = ''
+AWS_DEFAULT_ACL = 'public-read'
 
 AWS_LOCATION = 'static/'
 STATICFILES_DIRS = [
