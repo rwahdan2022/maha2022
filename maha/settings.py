@@ -134,7 +134,7 @@ AWS_QUERYSTRING_AUTH = False
 AWS_ACCESS_KEY_ID = os.environ['AKIAV6AB5EJOASMYI555']
 AWS_SECRET_ACCESS_KEY = os.environ['PrDbfmhDxl/56x386d1Gw6B4k1+B58EgjA9nSyNT']
 AWS_STORAGE_BUCKET_NAME = os.environ['mahahabib2022']
-MEDIA_URL = 'http://%s.s3.amazonaws.com/your-folder/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = 'http://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto.S3BotoStorage"
 
 #email local settings
