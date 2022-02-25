@@ -100,41 +100,31 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 #https://maha2022.s3.ap-southeast-1.amazonaws.com/static/
-
-
 AWS_ACCESS_KEY_ID = 'AKIAV6AB5EJOIWSV3C7D'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'maha2022'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazoneaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.ap-southeast-1.amazoneaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 AWS_DEFAULT_ACL = 'public-read'
 
 AWS_LOCATION = 'static'
 STATICFILES_DIRS = [
-
     os.path.join(BASE_DIR, 'static'),
 ]
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 MEDIA_URL = '/cart/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/cart/images/')
-ADMIN_MEDIA_PREFIX = '/static/admin/'
-
-STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+ADMIN_MEDIA_PREFIX = 'static/admin/'
 
 
 #email local settings
@@ -145,12 +135,12 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ramifamilyphotos2018@gmail.com'
 EMAIL_HOST_PASSWORD = 'Fatima@2020' #os.environ.get('EMAILPASSWORD')
 
-#CORS_REPLACE_HTTPS_REFERER = True
-#HOST_SCHEME = "https://"
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-#SECURE_SSL_REDIRECT = True
-#SESSION_COOKIE_SECURE = True
-#CSRF_COOKIE_SECURE = True
-#SECURE_HSTS_INCLUDE_SUBDOMAINS =True
-#SECURE_HSTS_SECONDS = True
-#SECURE_FRAME_DENY = True
+CORS_REPLACE_HTTPS_REFERER = True
+HOST_SCHEME = "https://"
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS =True
+SECURE_HSTS_SECONDS = True
+SECURE_FRAME_DENY = True
