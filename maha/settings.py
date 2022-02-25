@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-5uocf7or6lm51c(6=wj(c0qi+e60+nb@(=pxwa@6#n@6oq5&03
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.drmahahabib.com']
 
 
 # Application definition
@@ -119,17 +119,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
+#STATICFILES_DIRS = [
 
-    os.path.join(BASE_DIR, 'static'),
+#    os.path.join(BASE_DIR, 'static'),
 
-]
+#]
 
-MEDIA_URL = 'cart/images/'
+#MEDIA_URL = 'cart/images/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'static/cart/images')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/cart/images')
+AWS_QUERYSTRING_AUTH = False
+AWS_ACCESS_KEY_ID = os.environ['AKIAV6AB5EJOASMYI555']
+AWS_SECRET_ACCESS_KEY = os.environ['PrDbfmhDxl/56x386d1Gw6B4k1+B58EgjA9nSyNT']
+AWS_STORAGE_BUCKET_NAME = os.environ['mahahabib2022']
+MEDIA_URL = 'http://%s.s3.amazonaws.com/your-folder/' % AWS_STORAGE_BUCKET_NAME
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto.S3BotoStorage"
 
 #email local settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
