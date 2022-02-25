@@ -130,12 +130,25 @@ STATICFILES_DIRS = [
 #MEDIA_URL = 'cart/images/'
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'static/cart/images')
 
-AWS_QUERYSTRING_AUTH = False
+#AWS_QUERYSTRING_AUTH = False
+#AWS_ACCESS_KEY_ID = 'AKIAV6AB5EJOASMYI555'
+#AWS_SECRET_ACCESS_KEY = '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'
+#AWS_STORAGE_BUCKET_NAME = 'mahahabib2022'
+#MEDIA_URL = 'http://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
+#DEFAULT_FILE_STORAGE = "storages.backends.s3boto.S3BotoStorage"
+
+from boto.s3.connection import SubdomainCallingFormat
+AWS_CALLING_FORMAT = SubdomainCallingFormat()
+DEFAULT_FILE_STORAGE = 'project.s3utils.MediaRootS3BotoStorage'
 AWS_ACCESS_KEY_ID = 'AKIAV6AB5EJOASMYI555'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'mahahabib2022'
-MEDIA_URL = 'http://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto.S3BotoStorage"
+AWS_QUERYSTRING_AUTH = False
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, '../',  'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, '../..',  'media')
+MEDIA_URL = 'http://{!s}.s3.amazonaws.com/media/'.format(AWS_STORAGE_BUCKET_NAME)
 
 #email local settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
