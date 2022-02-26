@@ -47,7 +47,7 @@ def add_product(request):
 		if form.is_valid():
 			form.save()
 
-		return HttpResponseRedirect('/add_product?submitted=True')
+		#return HttpResponseRedirect('/add_product?submitted=True')
 	
 	else:
 		form = ProductForm
