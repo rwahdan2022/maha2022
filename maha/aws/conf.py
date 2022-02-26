@@ -1,4 +1,4 @@
-DEFAULT_FILE_STORAGE = '{cart}.settings.aws.storage_backends.MediaStorage'
+DEFAULT_FILE_STORAGE = '{appname}.settings.aws.storage_backends.MediaStorage'
 
 AWS_ACCESS_KEY_ID = 'AKIAV6AB5EJOASMYI555'
 AWS_SECRET_ACCESS_KEY = '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'
