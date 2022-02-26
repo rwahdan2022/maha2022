@@ -10,10 +10,4 @@ AWS_S3_OBJECT_PARAMETERS = {
 AWS_LOCATION = 'static'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-
-MEDIA_URL = 'cart/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/cart/images')
-
-#DEFAULT_FILE_STORAGE = 'asset_manager.custom_storages.MediaStorage'
-#DEFAULT_FILE_STORAGE = '{appname}.settings.aws.storage_backends.MediaStorage'
-#DEFAULT_FILE_STORAGE = 'mysite.storage_backends.MediaStorage' 
+DEFAULT_FILE_STORAGE = '{appname}.settings.aws.storage_backends.MediaStorage'
