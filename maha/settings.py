@@ -134,7 +134,7 @@ AWS_SECRET_ACCESS_KEY = 'PrDbfmhDxl/56x386d1Gw6B4k1+B58EgjA9nSyNT'
 AWS_STORAGE_BUCKET_NAME = 'mahahabib2022'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.ap-southeast-1.amazoneaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-#AWS_DEFAULT_ACL = ''
+AWS_DEFAULT_ACL = 'public-read'
 
 AWS_LOCATION = 'static'
 STATICFILES_DIRS = [
