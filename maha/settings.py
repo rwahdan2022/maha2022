@@ -127,15 +127,26 @@ STATICFILES_DIRS = [
 
 ]
 
-#MEDIA_URL = 'cart/images/'
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'static/cart/images')
-
 AWS_QUERYSTRING_AUTH = False
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AWS_ACCESS_KEY_ID = 'AKIAV6AB5EJOASMYI555'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'mahahabib2022'
-MEDIA_URL = 'http://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto.S3BotoStorage"
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazoneaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+#AWS_DEFAULT_ACL = ''
+
+AWS_LOCATION = 'static'
+STATICFILES_DIRS = [
+
+   os.path.join(BASE_DIR, 'static'),
+]
+
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+
+MEDIA_URL = 'cart/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/cart/images')
 
 #email local settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
