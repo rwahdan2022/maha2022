@@ -9,7 +9,7 @@
 
 	<div class="col-lg-6">
 		<video class="thumbnail" width="320" height="240" controls>
-	  		<source src='{{product.video_demo}}' type="video/mp4">
+	  		<source src='http://mahahabib2022.s3.ap-southeast-1.amazonaws.com/cart/images/{{product.video_demo}}' type="video/mp4">
 		</video>
 
 		<div class="box-element product">
@@ -24,7 +24,7 @@
 
 			{% else %}
 
-				<a href= 'http://localhost:8000/cart/images/{{product.video_file}}' download='{{product.name}}'>
+				<a href= 'http://mahahabib2022.s3.ap-southeast-1.amazonaws.com/cart/images/{{product.video_file}}' download='{{product.name}}'>
 				<button  class="btn btn-outline-secondary add-btn">Download Video</button></a>
 
 			{% endif %}		
