@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-5uocf7or6lm51c(6=wj(c0qi+e60+nb@(=pxwa@6#n@6oq5&03
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.drmahahabib.com','maha2022.herokuapp.com','mahahabib2022.s3.ap-southeast-1.amazonaws.com']
+ALLOWED_HOSTS = ['localhost','www.drmahahabib.com','maha2022.herokuapp.com','mahahabib2022.s3.ap-southeast-1.amazonaws.com']
 
 
 # Application definition
@@ -28,9 +28,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
     'cart',
     'customers',
-    'storages',
 ]
 
 MIDDLEWARE = [
