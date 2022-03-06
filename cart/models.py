@@ -36,7 +36,7 @@ class Product(models.Model):
 	price = models.FloatField()
 	category = models.ForeignKey(Category, on_delete=models.CASCADE, default=True, null=False)
 	digital = models.BooleanField(default=True, null=True, blank=False)
-	image = models.ImageField(null=True, blank=True)
+	image = models.ImageField(upload_to='images/',null=True, blank=True)
 	video_name= models.CharField(max_length=500)
 	video_file= models.FileField(upload_to='videos/', null=True, verbose_name="")
 	video_demo= models.FileField(upload_to='videos_demo/', null=True, verbose_name="")
