@@ -1,1 +1,1 @@
-web:gunicorn maha.wsgi
+web: gunicorn maha.wsgi
