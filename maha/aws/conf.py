@@ -1,5 +1,6 @@
-DEFAULT_FILE_STORAGE = '{appname}.settings.aws.storage_backends.MediaStorage'
+#DEFAULT_FILE_STORAGE = '{appname}.settings.aws.storage_backends.MediaStorage'
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Srorage'
 AWS_ACCESS_KEY_ID = 'AKIAV6AB5EJOASMYI555'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'mahahabib2022'
