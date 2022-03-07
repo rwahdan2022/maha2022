@@ -134,7 +134,7 @@ def transactions(request,order):
 				else:
 
 					f = request.FILES['file']
-					fs = FileSystemStorage(location="https://cfe2.ap-south-1.linodeobjects.com/payments_uploads/")
+					fs = FileSystemStorage(location="https://cfe2.ap-south-1.linodeobjects.com/cart/payments_uploads/")
 					filename, ext = str(f).split('.')
 					file = fs.save(str(f).replace(" ","_"),f)
 					fileurl = fs.url(f)
@@ -143,7 +143,7 @@ def transactions(request,order):
 
 					for order in item_list2:
 
-						order.image = "https://cfe2.ap-south-1.linodeobjects.com/payments_uploads/"+file
+						order.image = "https://cfe2.ap-south-1.linodeobjects.com/cart/payments_uploads/"+file
 						order.payment_date = datetime.datetime.now()
 						order.pay_confirm = False
 						order.save()
