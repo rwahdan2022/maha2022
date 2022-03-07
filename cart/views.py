@@ -169,7 +169,6 @@ def transactions(request,order):
 
 	else:
 
-		#not logged in
 		return redirect('login')
 
 def BeforeTransactions(request):
