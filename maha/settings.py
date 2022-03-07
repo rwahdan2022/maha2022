@@ -145,4 +145,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ramifamilyphotos2018@gmail.com'
-EMAIL_HOST_PASSWORD = 'Fatima@2020' #os.environ.get('EMAILPASSWORD')
+EMAIL_HOST_PASSWORD = 'Fatima@2022' #os.environ.get('EMAILPASSWORD')
