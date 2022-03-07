@@ -113,14 +113,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-#this is a test
 
 # cfehome/settings.py
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-LINODE_BUCKET=os.environ.get('LINODE_BUCKET', 'cfe2')
-LINODE_BUCKET_REGION=os.environ.get('LINODE_BUCKET_REGION',  'ap-south-1')
+LINODE_BUCKET=os.environ.get('LINODE_BUCKET', 'cfe')
+LINODE_BUCKET_REGION=os.environ.get('LINODE_BUCKET_REGION',  'us-east-1')
 LINODE_BUCKET_ACCESS_KEY=os.environ.get('LINODE_BUCKET_ACCESS_KEY', 'N2Y7396FB2M72IPBBJN9') 
 LINODE_BUCKET_SECRET_KEY=os.environ.get('LINODE_BUCKET_SECRET_KEY', 'Tdgg7NilAv298ZFtLawlojmuc5jHIumq3fIRySUl') 
 
