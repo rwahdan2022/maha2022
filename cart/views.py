@@ -148,17 +148,17 @@ def transactions(request,order):
 						order.pay_confirm = False
 						order.save()
 
-					subject = "Thank you for your payment!"
-					to = request.user.email
-					template = get_template("email_template2.html")
-					context = {'name': request.user.first_name,'theconfirmation':theconfirmation, 
-									'transaction_id' : transaction_id, 'total':total, 
-									'item_list': item_list,}
+					#subject = "Thank you for your payment!"
+					#to = request.user.email
+					#template = get_template("email_template2.html")
+					#context = {'name': request.user.first_name,'theconfirmation':theconfirmation, 
+					#				'transaction_id' : transaction_id, 'total':total, 
+					#				'item_list': item_list,}
 								
-					html = template.render(context)
-					message = EmailMessage(subject, html, settings.EMAIL_HOST_USER, [to])
-					message.content_subtype = 'html' # this is required because there is no plain text email message
-					message.send()
+					#html = template.render(context)
+					#message = EmailMessage(subject, html, settings.EMAIL_HOST_USER, [to])
+					#message.content_subtype = 'html' # this is required because there is no plain text email message
+					#message.send()
 
 					return redirect('store')
 
