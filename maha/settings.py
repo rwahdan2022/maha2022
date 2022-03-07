@@ -1,7 +1,5 @@
 from pathlib import Path
 import os
-from .aws.conf import *
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5uocf7or6lm51c(6=wj(c0qi+e60+nb@(=pxwa@6#n@6oq5&03'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','www.drmahahabib.com','maha2022.herokuapp.com','mahahabib2022.s3.ap-southeast-1.amazonaws.com']
+ALLOWED_HOSTS = ['www.drmahahabib.com','maha2022.herokuapp.com','mahahabib2022.s3.ap-southeast-1.amazonaws.com']
 
 # Application definition
 
@@ -115,38 +113,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-#STATIC_URL = 'static/'
-
-#STATICFILES_DIRS = [
-
-#    os.path.join(BASE_DIR, 'static'),
-
-#]
-
-#AWS_QUERYSTRING_AUTH = False
-#DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-#AWS_ACCESS_KEY_ID = 'AKIAV6AB5EJOASMYI555'
-#AWS_SECRET_ACCESS_KEY = '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'
-#AWS_STORAGE_BUCKET_NAME = 'mahahabib2022'
-#AWS_S3_CUSTOM_DOMAIN = '%s.s3.ap-southeast-1.amazoneaws.com' % AWS_STORAGE_BUCKET_NAME
-#AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-#AWS_DEFAULT_ACL = 'public-read'
-
-#AWS_LOCATION = 'static'
-#STATICFILES_DIRS = [
-
-#   os.path.join(BASE_DIR, 'static'),
-#]
-
-#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-#STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-
-#MEDIA_URL = 'cart/images/'
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'static/cart/images')
 
 #email local settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
