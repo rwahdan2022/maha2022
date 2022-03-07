@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-5uocf7or6lm51c(6=wj(c0qi+e60+nb@(=pxwa@6#n@6oq5&03
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.drmahahabib.com','maha2022.herokuapp.com','mahahabib2022.s3.ap-southeast-1.amazonaws.com']
+ALLOWED_HOSTS = ['localhost','www.drmahahabib.com','maha2022.herokuapp.com','mahahabib2022.s3.ap-southeast-1.amazonaws.com']
 
 # Application definition
 
@@ -115,7 +115,13 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #this is a test
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+
+    os.path.join(BASE_DIR, 'static'),
+
+]
 
 # cfehome/settings.py
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
