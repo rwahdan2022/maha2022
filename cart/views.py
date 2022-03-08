@@ -134,7 +134,7 @@ def transactions(request,order):
 				else:
 
 					f = request.FILES['file']
-					fs = FileSystemStorage(upload_to="payments_uploads/")
+					fs = FileSystemStorage(upload_to="https://cfe2.ap-south-1.linodeobjects.com/cart/")
 					#https://cfe2.ap-south-1.linodeobjects.com/cart/payments_uploads/
 					filename, ext = str(f).split('.')
 					file = fs.save(str(f).replace(" ","_"),f)
