@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-5uocf7or6lm51c(6=wj(c0qi+e60+nb@(=pxwa@6#n@6oq5&03
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.drmahahabib.com','maha2022.herokuapp.com','mahahabib2022.s3.ap-southeast-1.amazonaws.com']
+ALLOWED_HOSTS = ['localhost','www.drmahahabib.com','maha2022.herokuapp.com','mahahabib2022.s3.ap-southeast-1.amazonaws.com']
 
 # Application definition
 
@@ -146,4 +146,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ramifamilyphotos2018@gmail.com'
-EMAIL_HOST_PASSWORD = 'Fatima@2022'
+EMAIL_HOST_PASSWORD='ijzpiqeqjubfpqvb'
+#EMAIL_HOST_PASSWORD = 'Fatima@2022'
