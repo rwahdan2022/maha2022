@@ -136,20 +136,21 @@ def transactions(request,order):
 				else:
 
 					form = DocumentForm(request.POST, request.FILES)
-					#for filename, file in request.FILES.iteritems():
-					#	name = request.FILES[filename].name
+
+					instance = Order(image=request.FILES['image'])
+            		instance.save()
 
 					if form.is_valid():
 						form.save()
 
-					#item_list2 = Order.objects.filter(id = order.order.id)
+					item_list2 = Order.objects.filter(id = order.order.id)
 
-					#for order in item_list2:
+					for order in item_list2:
 
-						#order.image = "https://cfe2.ap-south-1.linodeobjects.com/receipts/"+name
-						#order.payment_date = datetime.datetime.now()
-						#order.pay_confirm = False
-						#order.save()
+						order.image = "https://cfe2.ap-south-1.linodeobjects.com/receipts/"+instance
+						order.payment_date = datetime.datetime.now()
+						order.pay_confirm = False
+						order.save()
 
 					subject = "Thank you for your payment!"
 					to = request.user.email
