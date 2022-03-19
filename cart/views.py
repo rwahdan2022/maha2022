@@ -11,7 +11,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string, get_template
 from django.conf import settings
 from django.core.mail import EmailMessage
-from .forms import ProductForm, CatForm
+from .forms import ProductForm, CatForm, DocumentForm
 
 def model_form_upload(request):
     if request.method == 'POST':
@@ -145,12 +145,9 @@ def transactions(request,order):
 
 				else:
 
-					f = request.FILES['file']
-					fs = FileSystemStorage(upload_to="https://cfe2.ap-south-1.linodeobjects.com/cart/")
-					#https://cfe2.ap-south-1.linodeobjects.com/cart/payments_uploads/
-					filename, ext = str(f).split('.')
-					file = fs.save(str(f).replace(" ","_"),f)
-					fileurl = fs.url(f)
+					form = DocumentForm(request.POST, request.FILES)
+					if form.is_valid():
+						form.save()
 
 					item_list2 = Order.objects.filter(id = order.order.id)
 
@@ -161,17 +158,17 @@ def transactions(request,order):
 						order.pay_confirm = False
 						order.save()
 
-					#subject = "Thank you for your payment!"
-					#to = request.user.email
-					#template = get_template("email_template2.html")
-					#context = {'name': request.user.first_name,'theconfirmation':theconfirmation, 
-					#				'transaction_id' : transaction_id, 'total':total, 
-					#				'item_list': item_list,}
+					subject = "Thank you for your payment!"
+					to = request.user.email
+					template = get_template("email_template2.html")
+					context = {'name': request.user.first_name,'theconfirmation':theconfirmation, 
+									'transaction_id' : transaction_id, 'total':total, 
+									'item_list': item_list,}
 								
-					#html = template.render(context)
-					#message = EmailMessage(subject, html, settings.EMAIL_HOST_USER, [to])
-					#message.content_subtype = 'html' # this is required because there is no plain text email message
-					#message.send()
+					html = template.render(context)
+					message = EmailMessage(subject, html, settings.EMAIL_HOST_USER, [to])
+					message.content_subtype = 'html' # this is required because there is no plain text email message
+					message.send()
 
 					return redirect('store')
 
