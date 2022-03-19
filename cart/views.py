@@ -136,8 +136,7 @@ def transactions(request,order):
 				else:
 
 					form = DocumentForm(request.POST, request.FILES)
-					for filename, file in request.FILES.iteritems():
-    					name = request.FILES[filename].name
+					file = request.files['file']
 					if form.is_valid():
 						form.save()
 
@@ -145,7 +144,7 @@ def transactions(request,order):
 
 					for order in item_list2:
 
-						order.image = "https://cfe2.ap-south-1.linodeobjects.com/"+name
+						order.image = "https://cfe2.ap-south-1.linodeobjects.com/"+file
 						order.payment_date = datetime.datetime.now()
 						order.pay_confirm = False
 						order.save()
