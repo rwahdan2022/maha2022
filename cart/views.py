@@ -142,9 +142,7 @@ def transactions(request,order):
 					
 					if form.is_valid():
 						form.save()
-					else:
-						return redirect('store')
-						
+
 					item_list2 = Order.objects.filter(id = order.order.id)
 
 					for order in item_list2:
@@ -166,7 +164,7 @@ def transactions(request,order):
 					message.content_subtype = 'html' # this is required because there is no plain text email message
 					message.send()
 
-					return redirect('store')
+					return HttpResponseRedirect('/store?submitted=True')
 
 		return render(request, 'transactions/show_transactions.html',
 				{'item_list': item_list, 'total': total, 'order_id':order_id, 'order_date':order_date, 
