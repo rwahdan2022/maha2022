@@ -148,6 +148,10 @@ def transactions(request,order):
 					form = DocumentForm(request.POST, request.FILES)
 					if form.is_valid():
 						form.save()
+					else:
+						form = DocumentForm()
+						return render(request, 'show_transactions.html', {
+							'form': form
 
 					item_list2 = Order.objects.filter(id = order.order.id)
 
