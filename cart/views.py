@@ -13,6 +13,18 @@ from django.conf import settings
 from django.core.mail import EmailMessage
 from .forms import ProductForm, CatForm
 
+def model_form_upload(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('store')
+    else:
+        form = DocumentForm()
+    return render(request, 'model_form_upload.html', {
+        'form': form
+    })
+
 def aboutme(request):
 	return render(request,'about.html',{})
 

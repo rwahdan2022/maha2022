@@ -1,6 +1,11 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Product, Category
+from .models import Product, Category, Order
+
+class DocumentForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ('image', )
 
 class ProductForm(ModelForm):
 	class Meta:

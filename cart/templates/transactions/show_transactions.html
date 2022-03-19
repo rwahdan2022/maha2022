@@ -102,15 +102,10 @@
 
 					<br/>
 
+
 					<a href="https://cfe2.ap-south-1.linodeobjects.com/cart/images/bank_statement.jpeg" download="Bank Details">Download Bank Details</a>
 
-					<form action="#" method="POST" enctype="multipart/form-data">
-						{% csrf_token %}
-						<label class="form-label">Upload Payment Receipt</label>
-					  <input class="form-control" type="file" id="file" name="file">
-					  <br/>
-						<button class="btn btn-success" upload_to="payments/" type="submit">Submit Payment</button>
-					</form>
+					<p><a href="{% url 'model_form_upload' %}">Upload Receipt</a></p>
 
 				{% endif %}
 
