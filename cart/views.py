@@ -136,7 +136,7 @@ def transactions(request,order):
 				else:
 
 					form = DocumentForm(request.POST, request.FILES)
-					file = request.files['file']
+					file = request.files['image']
 					if form.is_valid():
 						form.save()
 
