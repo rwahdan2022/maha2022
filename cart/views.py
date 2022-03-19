@@ -137,7 +137,6 @@ def transactions(request,order):
 				else:
 
 					form = DocumentForm(request.POST or None, request.FILES or None)
-					thename = request.FILES['filename'].name
 					
 					if form.is_valid():
 						form.save()
@@ -146,7 +145,7 @@ def transactions(request,order):
 
 					for order in item_list2:
 
-						order.image = "https://cfe2.ap-south-1.linodeobjects.com/receipts/"+thename
+						order.image = "https://cfe2.ap-south-1.linodeobjects.com/receipts/"+request.FILES
 						order.payment_date = datetime.datetime.now()
 						order.pay_confirm = False
 						order.save()
@@ -163,7 +162,7 @@ def transactions(request,order):
 					message.content_subtype = 'html' # this is required because there is no plain text email message
 					message.send()
 
-					return HttpResponseRedirect('/store?submitted=True')
+					return redirect('store')
 
 		return render(request, 'transactions/show_transactions.html',
 				{'item_list': item_list, 'total': total, 'order_id':order_id, 'order_date':order_date, 
