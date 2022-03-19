@@ -49,6 +49,7 @@ def add_product(request):
 		return HttpResponseRedirect('/add_product?submitted=True')
 	
 	else:
+		
 		form = ProductForm
 		if 'submitted' in request.GET:
 			submitted = True
@@ -136,8 +137,8 @@ def transactions(request,order):
 				else:
 
 					form = DocumentForm(request.POST or None, request.FILES or None)
-					for filename, file in request.FILES.iteritems():
-						name = request.FILES[filename].name
+					#for filename, file in request.FILES.iteritems():
+					#	name = request.FILES[filename].name
 					
 					if form.is_valid():
 						form.save()
