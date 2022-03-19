@@ -142,7 +142,9 @@ def transactions(request,order):
 					
 					if form.is_valid():
 						form.save()
-
+					else:
+						return redirect('store')
+						
 					item_list2 = Order.objects.filter(id = order.order.id)
 
 					for order in item_list2:
