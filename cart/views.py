@@ -114,6 +114,8 @@ def transactions(request,order):
 			customer_email = order.order.customer.email
 			transaction_id = order.order.transaction_id
 
+			form = DocumentForm()
+
 		if request.method=='POST':
 
 			if request.user.is_authenticated:
@@ -148,8 +150,6 @@ def transactions(request,order):
 					form = DocumentForm(request.POST, request.FILES)
 					if form.is_valid():
 						form.save()
-					else:
-						form = DocumentForm()
 
 					item_list2 = Order.objects.filter(id = order.order.id)
 
