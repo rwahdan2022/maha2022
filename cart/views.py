@@ -13,18 +13,6 @@ from django.conf import settings
 from django.core.mail import EmailMessage
 from .forms import ProductForm, CatForm, DocumentForm
 
-def model_form_upload(request):
-    if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('store')
-    else:
-        form = DocumentForm()
-    return render(request, 'model_form_upload.html', {
-        'form': form
-    })
-
 def aboutme(request):
 	return render(request,'about.html',{})
 
@@ -155,7 +143,7 @@ def transactions(request,order):
 
 					for order in item_list2:
 
-						order.image = "/payments_uploads/"+file
+						order.image = "https://cfe2.ap-south-1.linodeobjects.com"+file
 						order.payment_date = datetime.datetime.now()
 						order.pay_confirm = False
 						order.save()
