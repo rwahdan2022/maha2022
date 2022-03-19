@@ -87,6 +87,8 @@ def transactions(request,order):
 		order = order
 		item_list = OrderItem.objects.filter(order = order)
 		
+		form = DocumentForm()
+
 		for order in item_list:
 
 			items.append("https://cfe2.ap-south-1.linodeobjects.com" + order.product.imageURL)
@@ -113,8 +115,6 @@ def transactions(request,order):
 			thequantity = order.quantity
 			customer_email = order.order.customer.email
 			transaction_id = order.order.transaction_id
-
-		form = DocumentForm()
 
 		if request.method=='POST':
 
@@ -177,7 +177,7 @@ def transactions(request,order):
 		return render(request, 'transactions/show_transactions.html',
 				{'item_list': item_list, 'total': total, 'order_id':order_id, 'order_date':order_date, 
 				'thecustomer':thecustomer, 'done':done, 'thedate':thedate, 'filename':filename, 'fileurl':fileurl,
-				'ext':ext, 'size':size, 'theimage':theimage, 'thequantity':thequantity, 'done2':done2})
+				'ext':ext, 'size':size, 'theimage':theimage, 'thequantity':thequantity, 'done2':done2, 'form':form})
 
 	else:
 
