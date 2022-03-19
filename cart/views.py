@@ -136,6 +136,9 @@ def transactions(request,order):
 				else:
 
 					form = DocumentForm(request.POST or None, request.FILES or None)
+					for filename, file in request.FILES.iteritems():
+						name = request.FILES[filename].name
+					
 					if form.is_valid():
 						form.save()
 
