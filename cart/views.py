@@ -136,7 +136,6 @@ def transactions(request,order):
 				else:
 
 					form = DocumentForm(request.POST or None, request.FILES or None)
-					instance = request.FILES
 					if form.is_valid():
 						form.save()
 
