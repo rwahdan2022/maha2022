@@ -136,8 +136,8 @@ def transactions(request,order):
 				else:
 
 					form = DocumentForm(request.POST, request.FILES)
-					for filename, file in request.FILES.iteritems():
-						name = request.FILES[filename].name
+					#for filename, file in request.FILES.iteritems():
+					#	name = request.FILES[filename].name
 
 					if form.is_valid():
 						form.save()
@@ -155,8 +155,8 @@ def transactions(request,order):
 					to = request.user.email
 					template = get_template("email_template2.html")
 					context = {'name': request.user.first_name,'theconfirmation':theconfirmation, 
-									'transaction_id' : transaction_id, 'total':total, 
-									'item_list': item_list,}
+				    					'transaction_id' : transaction_id, 'total':total, 
+				    					'item_list': item_list,}
 								
 					html = template.render(context)
 					message = EmailMessage(subject, html, settings.EMAIL_HOST_USER, [to])
