@@ -114,7 +114,7 @@ def transactions(request,order):
 			customer_email = order.order.customer.email
 			transaction_id = order.order.transaction_id
 
-			form = DocumentForm()
+		form = DocumentForm()
 
 		if request.method=='POST':
 
