@@ -143,7 +143,7 @@ def transactions(request,order):
 
 					for order in item_list2:
 
-						order.image = "https://cfe2.ap-south-1.linodeobjects.com"+file
+						order.image = "https://cfe2.ap-south-1.linodeobjects.com/"+file
 						order.payment_date = datetime.datetime.now()
 						order.pay_confirm = False
 						order.save()
