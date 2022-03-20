@@ -62,7 +62,7 @@ class Order(models.Model):
 	pay_confirm = models.BooleanField(default=False,null=True,blank=False)
 
 	def filename(self):
-        return os.path.basename(self.image.name)
+		return os.path.basename(self.image.name)
 
 	def __str__(self):
 		return str(self.id)
