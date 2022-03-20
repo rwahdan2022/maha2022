@@ -142,10 +142,11 @@ def transactions(request,order):
 						item_list2 = Order.objects.filter(id = order.order.id)
 
 						for order in item_list2:
-							order.image = "https://cfe2.ap-south-1.linodeobjects.com/receipts/"+str(filename)
+							#order.image = "https://cfe2.ap-south-1.linodeobjects.com/receipts/"+str(filename)
 							order.payment_date = datetime.datetime.now()
 							order.pay_confirm = False
 							order.save()
+							form.save()
 
 					subject = "Thank you for your payment!"
 					to = request.user.email
