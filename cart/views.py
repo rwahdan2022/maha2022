@@ -100,7 +100,7 @@ def transactions(request,order):
 			order_id = order.order
 			order_date = order.order.date_ordered
 			thecustomer = order.order.customer
-			theimage = "https://cfe2.ap-south-1.linodeobjects.com/receipts/"+order.order.image
+			theimage = order.order.image
 			thequantity = order.quantity
 			customer_email = order.order.customer.email
 			transaction_id = order.order.transaction_id
