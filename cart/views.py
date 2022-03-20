@@ -142,7 +142,7 @@ def transactions(request,order):
 						item_list2 = Order.objects.filter(id = order.order.id)
 
 						for order in item_list2:
-							order.image = form.image
+							order.image = image.name
 							order.payment_date = datetime.datetime.now()
 							order.pay_confirm = False
 							order.save()
