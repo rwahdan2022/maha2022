@@ -58,8 +58,11 @@ class Order(models.Model):
 	payment_date = models.DateTimeField(blank=True, null=True)
 	complete = models.BooleanField(default=False,null=True,blank=False)
 	transaction_id = models.CharField(max_length=200, null=True)
-	image = models.ImageField(upload_to='receipts/',null=True, blank=True)
+	image = models.FileField(upload_to='receipts/',null=True, blank=True)
 	pay_confirm = models.BooleanField(default=False,null=True,blank=False)
+
+	def filename(self):
+        return os.path.basename(self.image.name)
 
 	def __str__(self):
 		return str(self.id)
