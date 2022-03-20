@@ -69,6 +69,7 @@
 	    	{% if user.is_superuser %}
 
 					<strong>Total Paid:         {{total}}AED<br/><br/></strong>
+					<img src= {{theimage}} width="25%"> 
 
 					{% if done2 == 1 %}
 						{{done2}}
@@ -77,6 +78,15 @@
 						<button type="submit">Confirm Payment</button>
 						</form>
 					{% endif %}
+
+				{% else %}
+
+					<strong>Total Paid:   {{total}}AED<br/><br/></strong>
+					<img src= {{theimage}} width="25%"> 
+
+				{% endif %}
+
+			{% endif %}
 
 				{% else %}
 
