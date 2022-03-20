@@ -84,6 +84,10 @@
 					<strong>Total Paid:   {{total}}AED<br/><br/></strong>
 					<img src="https://cfe2.ap-south-1.linodeobjects.com/{{theimage}}" width="25%">
 
+					{% for i in item_list %}
+                <a href="https://cfe2.ap-south-1.linodeobjects.com/{{i.product.video_file}}">{{i.product.name}}</a><br/>
+          {% endfor %}
+
 				{% endif %}
 
 			{% endif %}
