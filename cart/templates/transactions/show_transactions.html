@@ -82,10 +82,10 @@
 				{% else %}
 
 					<strong>Total Paid:   {{total}}AED<br/><br/></strong>
-					<img src="https://cfe2.ap-south-1.linodeobjects.com/{{theimage}}" width="25%">
+					<!-- <img src="https://cfe2.ap-south-1.linodeobjects.com/{{theimage}}" width="25%"> -->
 
-					{% for order in item_list %}
-                <a href="https://cfe2.ap-south-1.linodeobjects.com/{{order.product.video_file}}">{{order.product.name}}</a><br/>
+					{% for i in item_list %}
+                <a href="https://cfe2.ap-south-1.linodeobjects.com/{{i.product.video_file}}">{{i.product.name}}</a><br/>
           {% endfor %}
 
 				{% endif %}
