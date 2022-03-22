@@ -13,6 +13,9 @@ from django.conf import settings
 from django.core.mail import EmailMessage
 from .forms import ProductForm, CatForm, DocumentForm
 
+def go_admin(request):
+	return render(request,'admin/',{})
+
 def aboutme(request):
 	return render(request,'about.html',{})
 

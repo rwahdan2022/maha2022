@@ -93,11 +93,13 @@
 			<strong>Hello, {{request.user.get_full_name}}<span style="padding-left:600px;"></span></strong>
 				<a href="{% url 'store' %}"class="btn btn-warning">Main</a>
 		    		&nbsp;&nbsp;
-		    		<a href="{% url 'list-transactions' %}"class="btn btn-warning">Transactions</a>
+		    		<a href="{% url 'add-cat' %}"class="btn btn-warning">Add Category</a>
 		    		&nbsp;&nbsp;
 		    		<a href="{% url 'add-product' %}"class="btn btn-warning">Add Product</a>
 		    		&nbsp;&nbsp;
-		    		<a href="{% url 'add-cat' %}"class="btn btn-warning">Add Category</a>
+		    		<a href="{% url 'list-transactions' %}"class="btn btn-warning">Transactions</a>
+		    		&nbsp;&nbsp;
+		    		<a href="{% url 'admin' %}"class="btn btn-warning">Admin</a>
 		    		&nbsp;&nbsp;
 		    	    	<a href="{% url 'logout' %}"class="btn btn-warning">Logout</a>
 		{% else %}
