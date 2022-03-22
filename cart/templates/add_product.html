@@ -8,21 +8,31 @@
 <center>
 	<br/><br/>
 	
-	{% if submitted %}
+{% if submitted %}
 	
 		Your product was added...
 	
+{% else %}
+
 	{% else %}
 
-		<form action="" method="POST" enctype="multipart/form-data">
-			{% csrf_token %}
-			{{ form.as_p }}
+	{% if user.is_authenticated %}
+	    	
+	    	{% if user.is_superuser %}
 
-			<input type="submit" value="submit" class="btn btn-secondary">
+				<form action="" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{ form.as_p }}
 
-		</form>
+					<input type="submit" value="submit" class="btn btn-secondary">
+
+				</form>
+
+			{% endif %}
 
 	{% endif %}
+			
+{% endif %}
 
 
 {% endblock content %}
