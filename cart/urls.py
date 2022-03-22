@@ -12,5 +12,4 @@ urlpatterns = [
     path('add_product/', views.add_product, name="add-product"),
     path('add_cat/', views.add_cat, name="add-cat"),
     path('store.html/', views.store, name="store"),
-    path('admin/', admin.site.urls, name="admin-site"),
 ]
