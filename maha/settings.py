@@ -141,6 +141,9 @@ AWS_S3_USE_SSL=False
 AWS_STORAGE_BUCKET_NAME=LINODE_BUCKET
 
 
+FILE_UPLOAD_MAX_MEMORY_SIZE = 524288000
+
+
 #email local settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
