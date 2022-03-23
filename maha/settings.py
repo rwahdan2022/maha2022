@@ -149,7 +149,8 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ramifamilyphotos2018@gmail.com'
 EMAIL_HOST_PASSWORD='ijzpiqeqjubfpqvb'
 
-
+#SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True   # after last activity
 SESSION_EXPIRE_SECONDS = 300                # 5 minutes
 SESSION_COOKIE_AGE = 300                    # 5 minutes
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True      # clear on close
+SESSION_TIMEOUT_REDIRECT = '{% url 'logout' %}'
