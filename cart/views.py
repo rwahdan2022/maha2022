@@ -19,18 +19,12 @@ def aboutme(request):
 def add_cat(request):
 	submitted = False
 
-	if SESSION_EXPIRE_SECONDS:
+	if request.method=="POST":
 
-		return redirect('store')
+		form = CatForm(request.POST or None, request.FILES or None)
 
-	else:
-
-		if request.method=="POST":
-
-			form = CatForm(request.POST or None, request.FILES or None)
-
-			if form.is_valid():
-				form.save()
+		if form.is_valid():
+			form.save()
 			return HttpResponseRedirect('/add_cat?submitted=True')
 		
 		else:
