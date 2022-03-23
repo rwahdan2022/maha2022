@@ -10,7 +10,7 @@ class DocumentForm(forms.ModelForm):
 class ProductForm(ModelForm):
 	class Meta:
 		model = Product
-		fields = ('name','price','category','digital','image','video_name','video_file', 'video_demo')
+		fields = ('name','price','category','digital','image','video_name')
 		
 		labels = {
 
@@ -20,8 +20,6 @@ class ProductForm(ModelForm):
 		'digital': 'Digital?',
 		'image': 'Upload Image',
 		'video_name': '',	
-		'video_file': 'Upload Video',
-		'video_demo': 'Upload Video Demo',
 
 		}
 
@@ -33,8 +31,6 @@ class ProductForm(ModelForm):
 		'digital': forms.CheckboxInput(attrs={'class':'form-control'}),
 		'image': forms.FileInput(attrs={'class':'form-control'}),
 		'video_name': 	forms.TextInput(attrs={'class':"form-control", "placeholder":"Video Title"}),
-		'video_file':	forms.FileInput(attrs={'class':'form-control'}),
-		'video_demo':	forms.FileInput(attrs={'class':'form-control'}),
 		}
 
 class CatForm(ModelForm):
