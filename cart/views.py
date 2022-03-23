@@ -26,13 +26,11 @@ def add_cat(request):
 		if form.is_valid():
 			form.save()
 			return HttpResponseRedirect('/add_cat?submitted=True')
-		
-		else:
 
-			form = CatForm
-			
-			if 'submitted' in request.GET:
-				submitted = True
+	else:
+		form = CatForm
+		if 'submitted' in request.GET:
+			submitted = True
 
 	return render(request, 'add_cat.html', {'form':form, 'submitted':submitted})
 
