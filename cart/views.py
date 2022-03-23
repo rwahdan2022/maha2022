@@ -138,7 +138,6 @@ def transactions(request,order):
 					if form.is_valid():
 						item_list2 = Order.objects.filter(id = order.order.id)
 						
-
 						for order in item_list2:
 							order.image = form.cleaned_data.get('image')
 							order.payment_date = datetime.datetime.now()
