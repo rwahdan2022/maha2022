@@ -13,29 +13,32 @@ from django.conf import settings
 from django.core.mail import EmailMessage
 from .forms import ProductForm, CatForm, DocumentForm
 
-def go_admin(request):
-	return render(request,'admin/',{})
-
 def aboutme(request):
 	return render(request,'about.html',{})
 
 def add_cat(request):
 	submitted = False
 
-	if request.method=="POST":
+	if SESSION_EXPIRE_SECONDS:
 
-		form = CatForm(request.POST or None, request.FILES or None)
+		return redirect('store')
 
-		if form.is_valid():
-			form.save()
-		return HttpResponseRedirect('/add_cat?submitted=True')
-	
 	else:
 
-		form = CatForm
+		if request.method=="POST":
+
+			form = CatForm(request.POST or None, request.FILES or None)
+
+			if form.is_valid():
+				form.save()
+			return HttpResponseRedirect('/add_cat?submitted=True')
 		
-		if 'submitted' in request.GET:
-			submitted = True
+		else:
+
+			form = CatForm
+			
+			if 'submitted' in request.GET:
+				submitted = True
 
 	return render(request, 'add_cat.html', {'form':form, 'submitted':submitted})
 
