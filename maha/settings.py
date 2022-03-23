@@ -140,6 +140,12 @@ AWS_S3_REGION_NAME=LINODE_BUCKET_REGION
 AWS_S3_USE_SSL=True
 AWS_STORAGE_BUCKET_NAME=LINODE_BUCKET
 
+#SESSION_EXPIRE_AFTER_LAST_ACTIVITY = False      # after last activity
+SESSION_EXPIRE_SECONDS = 1200                   # 1200 = 20 minutes
+SESSION_COOKIE_AGE = 3600                       # 3600 = 1 hour
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True          # clear on close
+SESSION_TIMEOUT_REDIRECT = 'http://www.drmahahabib.com/'
+
 #email local settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -147,9 +153,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = False
 EMAIL_HOST_USER = 'ramifamilyphotos2018@gmail.com'
 EMAIL_HOST_PASSWORD='ijzpiqeqjubfpqvb'
-
-#SESSION_EXPIRE_AFTER_LAST_ACTIVITY = False      # after last activity
-SESSION_EXPIRE_SECONDS = 1200                   # 1200 = 20 minutes
-SESSION_COOKIE_AGE = 3600                       # 3600 = 1 hour
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True          # clear on close
-SESSION_TIMEOUT_REDIRECT = 'http://www.drmahahabib.com/'
