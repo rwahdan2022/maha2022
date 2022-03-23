@@ -153,4 +153,4 @@ EMAIL_HOST_PASSWORD='ijzpiqeqjubfpqvb'
 SESSION_EXPIRE_SECONDS = 300                # 5 minutes
 SESSION_COOKIE_AGE = 300                    # 5 minutes
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True      # clear on close
-SESSION_TIMEOUT_REDIRECT = '{% url 'logout' %}'
+SESSION_TIMEOUT_REDIRECT = 'http://www.drmahahabib.com/'
